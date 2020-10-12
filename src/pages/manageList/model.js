@@ -4,6 +4,7 @@ const model = {
     namespace: 'quotaList',
 
     state: {
+        visible: false,
         business: [{
             name: '全部',
             code: '1'
@@ -29,11 +30,81 @@ const model = {
             name: '电商域'
         }],
 
+        quotaTypes: [
+            {
+                name: '全部'
+            }, {
+                name: '原子指标'
+            }, {
+                name: '业务线定指标'
+            }, {
+                name: '衍生指标'
+            }
+        ],
+
+        statusList: [
+            {
+                name: '全部'
+            }, {
+                name: '正常'
+            }, {
+                name: '配置异常'
+            }, {
+                name: '未实现'
+            }
+        ],
+
+        dataSource: [
+            {
+                name: '全部'
+            }, {
+                name: '未配置'
+            }, {
+                name: 'Kylin'
+            }, {
+                name: '汇总表'
+            },
+
+        ],
+
+        principal: [
+            {
+                name: '张三'
+            },
+            {
+                name: '李四'
+            },
+            {
+                name: '王五'
+            },
+            {
+                name: '赵六'
+            }
+        ],
+
+        tableList: [
+            {   
+                key: 0,
+                name: '张三',
+                status: 0,
+                business: '手抄',
+                business_process: '业务过程',
+                data_domain: '数据域',
+                user: '许杭州'
+            }
+        ]
+
     },
 
     reducers: {
         updateBusiness (state, { payload: business }) {
             return {...state, business} // state参数是引用类型，如果直接return state，dva会认为没有修改state，所有不会刷新
+        },
+
+        changeVisible (state, { payload: visible }) {
+            debugger
+            state.visible = visible
+            return { ...state }
         }
     },
 
