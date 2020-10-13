@@ -102,9 +102,7 @@ const model = {
         },
 
         changeVisible (state, { payload: visible }) {
-            debugger
-            state.visible = visible
-            return { ...state }
+            return { ...state, ...visible }
         }
     },
 
